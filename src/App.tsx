@@ -10,7 +10,7 @@ export class App extends React.Component<State> {
   };
 
   handleKeyup = (event: KeyboardEvent) => {
-    this.setState({ lastPressedKey: event.key });
+    this.setState({ pressedKey: event.key });
     // eslint-disable-next-line no-console
     console.log(event.key);
   };
@@ -24,14 +24,14 @@ export class App extends React.Component<State> {
   }
 
   render() {
-    const { pressedKey: lastPressedKey } = this.state;
+    const { pressedKey } = this.state;
 
     return (
       <div className="App">
         <p className="App__message">
-          {lastPressedKey === ''
+          {pressedKey === ''
             ? 'Nothing was pressed yet'
-            : `The last pressed key is [${lastPressedKey}]`}
+            : `The last pressed key is [${pressedKey}]`}
         </p>
       </div>
     );
